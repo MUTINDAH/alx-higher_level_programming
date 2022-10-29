@@ -1,4 +1,4 @@
-#!/usr/bin/pythoni3
+#!/usr/bin/python3
 def uniq_add(my_list=[]):
     unique_list = []
     sum_unique = 0
