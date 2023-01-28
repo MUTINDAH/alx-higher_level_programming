@@ -29,4 +29,3 @@ def safe_print_list(my_list=[], x=0):
 #     """The function then returns the number of elements that were
 #     actually printed."""
 #     return print_elements
-
