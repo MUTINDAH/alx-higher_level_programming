@@ -4,7 +4,8 @@ def safe_print_division(a, b):
     quotient = (a / b)
     try:
         return quotient
-    except (TypeError, ValueError):
-        pass
+    except ZeroDivisionError:
+        quotient = None
     finally:
         print("Inside result: {:d}".format(quotient))
+    return quotient
