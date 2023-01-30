@@ -1,9 +1,1 @@
 0
-
-Before the execution of line 2 (print("Love")), two int objects have been created and are still in memory.
-
-In CPython, small integers (integers from -5 to 256, inclusive) are stored in a cache and are shared between multiple int objects to save memory. So, when the program creates the first int object (e.g. 1), it is stored in the cache and reused when another int object with the same value is created (e.g. 1). In this case, no new int objects are created.
-
-Strings, on the other hand, are not stored in a cache, and a new string object is created each time a string literal is used in the program.
-
-So, in the code print("I") and print("Love"), two string objects are created, and each print statement creates a new string object, but no int objects are created.
