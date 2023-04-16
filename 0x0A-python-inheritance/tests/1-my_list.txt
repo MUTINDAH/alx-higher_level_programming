@@ -1,78 +1,73 @@
-Checking for module docstring:
-         >>> m = __import__("1-my_list").__doc__
-         >>> len(m) > 1
-         True
+First import method to test
+>>> MyList = __import__('1-my_list').MyList
 
-Checking for class docstring:
-         >>> c = __import__("1-my_list").MyList.__doc__
-         >>> len(c) > 1
-         True
+SUCCESS CASES:
 
-Checking for method docstring:
-	  >>> mod = __import__("1-my_list").MyList.print_sorted.__doc__
-	  >>> len(mod) > 1
-	  True
+Test ints (program assumes all elements will be type int):
+        >>> MyList = __import__('1-my_list').MyList
+        >>> my_list = MyList()
+        >>> my_list.append(9)
+        >>> my_list.append(50)
+        >>> my_list.append(5)
+        >>> print(my_list)
+        [9, 50, 5]
+        >>> my_list.print_sorted()
+        [5, 9, 50]
+        >>> print(my_list)
+        [9, 50, 5]
 
-Checking that MyList inherits from list:
-	  >>> issubclass(MyList, list)
-	  True
+>>> another_list = MyList()
+     	>>> another_list.append(300)
+     	>>> another_list.append(50)
+     	>>> another_list.append(-1)
+     	>>> print(another_list)
+     	[300, 50, -1]
+     	>>> another_list.print_sorted()
+     	[-1, 50, 300]
+     	>>> print(another_list)
+     	[300, 50, -1]
 
-Checking for empty list:
-	  >>> l = MyList()
-	  >>> l.print_sorted()
-	  []
+     	>>> l = MyList()
+     	>>> l.append(-300)
+     	>>> l.append(50)
+     	>>> l.append(-1)
+     	>>> print(l)
+    	[-300, 50, -1]
+     	>>> id(l) is not id(l.print_sorted())
+     	[-300, -1, 50]
+     	True
 
-Checking that appendng works:
-	  >>> l.append(1)
-	  >>> l.append(2)
-	  >>> l.append(3)
-	  >>> l.append(4)
-	  >>> print(l)
-	  [1, 2, 3, 4]
+Test list with only one element:
+	>>> solo = MyList()
+     	>>> solo.append(-99999)
+     	>>> print(solo)
+     	[-99999]
+     	>>> solo.print_sorted()
+     	[-99999]
+     	>>> print(solo)
+     	[-99999]
 
-Checking for list already in correct order:
-	  >>> l.print_sorted()
-	  [1, 2, 3, 4]
+Test list with no elements:
+     	>>> empty = MyList()
+     	>>> print(empty)
+     	[]
+    	>>> empty.print_sorted()
+     	[]
 
-Checking for reversed order list:
-	  >>> l = MyList()
-	  >>> l.append(4)
-	  >>> l.append(3)
-	  >>> l.append(2)
-	  >>> l.append(1)
-	  >>> print(l)
-	  [4, 3, 2, 1]
-	  >>> l.print_sorted()
-	  [1, 2, 3, 4]
-	  >>> print(l)
-	  [4, 3, 2, 1]
+Test type, isinstance, issubclass:
+     	>>> type(MyList())
+     	<class '1-my_list.MyList'>
 
-Checking for one negative number:
-	  >>> l.append(-1)
-	  >>> l.append(5)
-	  >>> print(l)
-	  [4, 3, 2, 1, -1, 5]
-	  >>> l.print_sorted()
-	  [-1, 1, 2, 3, 4, 5]
-	  >>> print(l)
-	  [4, 3, 2, 1, -1, 5]
+     	>>> isinstance(MyList, object)
+     	True
 
-Checking for all negative numbers:
-	  >>> l = MyList()
-	  >>> l.append(-10)
-	  >>> l.append(-1)
-	  >>> l.append(-7)
-	  >>> l.append(-2)
-	  >>> l.append(-8)
-	  >>> print(l)
-	  [-10, -1, -7, -2, -8]
-	  >>> l.print_sorted()
-	  [-10, -8, -7, -2, -1]
-	  >>> print(l)
-          [-10, -1, -7, -2, -8]
+     	>>> isinstance(MyList, list)
+     	False
 
-Checking for too many arguments:
-	  >>> l.print_sorted(1)
-	  Traceback (most recent call last):
-	  ...
-	  TypeError: print_sorted() takes 1 positional argument but 2 were given
+     	>>> issubclass(MyList, list)
+     	True
+
+     	>>> 'print_sorted' in dir(MyList)
+     	True
+
+FAIL CASES:
