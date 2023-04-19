@@ -26,7 +26,6 @@ def add_integer(a, b=98):
     else:
         return int(a) + int(b)
 
-
 # print(add_integer(1, 2))
 # print(add_integer(100, -2))
 # print(add_integer(2))
