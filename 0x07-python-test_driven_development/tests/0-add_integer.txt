@@ -28,7 +28,7 @@ The function also works with floating-point values.
     >>> add_integer(2.0, 3.0)
     5
 
-Note that floats are cast to integers before addition.
+Note that floats are casted to integers before addition.
 
 ::
 
